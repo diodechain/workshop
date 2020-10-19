@@ -1,0 +1,30 @@
+{
+  "name": "contract",
+  "version": "0.1.0",
+  "description": "Smart contract for diode workshop.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "solhint": "^3.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "truffle test",
+    "lint": "solhint contracts/**/*.sol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diodechain/workshop.git"
+  },
+  "keywords": [
+    "diodechain"
+  ],
+  "author": "sc0vu <peter@diode.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diodechain/workshop/issues"
+  },
+  "homepage": "https://github.com/diodechain/workshop#readme"
+}

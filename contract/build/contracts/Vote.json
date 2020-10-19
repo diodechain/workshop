@@ -1,0 +1,1747 @@
+{
+  "contractName": "Vote",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_topic",
+          "type": "bytes32"
+        }
+      ],
+      "name": "AddVoteTopic",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_topic",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_option",
+          "type": "bytes32"
+        }
+      ],
+      "name": "AddVoteTopicOption",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_topic",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_option",
+          "type": "bytes32"
+        }
+      ],
+      "name": "VoteTopic",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "voting",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "topic",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.5+commit.f956cc89\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_topic\",\"type\":\"bytes32\"}],\"name\":\"AddVoteTopic\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_topic\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_option\",\"type\":\"bytes32\"}],\"name\":\"AddVoteTopicOption\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_topic\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_option\",\"type\":\"bytes32\"}],\"name\":\"VoteTopic\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"voting\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"topic\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/peterlai/workshop/contract/contracts/Vote.sol\":\"Vote\"},\"evmVersion\":\"constantinople\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/peterlai/workshop/contract/contracts/SafeMath.sol\":{\"keccak256\":\"0xdfddc6b5358397a3bf41e403a1216bad52cefdbf111cb16c34dff543016dc0b5\",\"urls\":[\"bzz-raw://776b14ed89d4442884ba29a95fdb2ac056997914789c40e0c3a34d7bbeb0a176\",\"dweb:/ipfs/QmT8bnN27ZWchzyHeEbfWsg5WPEQHv3qui4mCy7kR39UcV\"]},\"/Users/peterlai/workshop/contract/contracts/Vote.sol\":{\"keccak256\":\"0xa9640198389b1dc890193f196be45845be0c4d331bef28043760664f7979551e\",\"urls\":[\"bzz-raw://d4ce99cc94ae524c535d9e6d6a30d7eec576f2800e1ea315831a40f77f6222be\",\"dweb:/ipfs/QmcRr2Y2iHMkARQGCqqsEHPhQsy4ADAauYbAhe1wK8MgNj\"]}},\"version\":1}",
+  "bytecode": "0x6080604052600080546001600160a01b0319163317905534801561002257600080fd5b5060e0806100316000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80638da5cb5b146037578063e0e7365c146059575b600080fd5b603d6085565b604080516001600160a01b039092168252519081900360200190f35b607360048036036020811015606d57600080fd5b50356094565b60408051918252519081900360200190f35b6000546001600160a01b031681565b600260208190526000918252604090912001548156fea2646970667358221220888006158a0cf2452b4e28e67191a26ada5cfcd5ff97aeb7709a1a262de6dda064736f6c63430006050033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80638da5cb5b146037578063e0e7365c146059575b600080fd5b603d6085565b604080516001600160a01b039092168252519081900360200190f35b607360048036036020811015606d57600080fd5b50356094565b60408051918252519081900360200190f35b6000546001600160a01b031681565b600260208190526000918252604090912001548156fea2646970667358221220888006158a0cf2452b4e28e67191a26ada5cfcd5ff97aeb7709a1a262de6dda064736f6c63430006050033",
+  "immutableReferences": {},
+  "sourceMap": "50:1827:2:-:0;;;284:33;;;-1:-1:-1;;;;;;284:33:2;307:10;284:33;;;50:1827;2:2:-1;;;;27:1;24;17:12;2:2;50:1827:2;;;;;;;",
+  "deployedSourceMap": "50:1827:2:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;50:1827:2;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;284:33:2;;;:::i;:::-;;;;-1:-1:-1;;;;;284:33:2;;;;;;;;;;;;;;341:39;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;-1:-1;341:39:2;;:::i;:::-;;;;;;;;;;;;;;;;284:33;;;-1:-1:-1;;;;;284:33:2;;:::o;341:39::-;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.6.5;\nimport \"./SafeMath.sol\";\n\ncontract Vote {\n  using SafeMath for uint256;\n  struct Votes {\n    mapping(address => bytes32) voted;\n    mapping(bytes32 => uint256) votes;\n    bytes32 topic;\n    mapping(bytes32 => bool) existedOptions;\n    bytes32[] options;\n  }\n  address public owner = msg.sender;\n  bytes32[] topics;\n  mapping(bytes32 => Votes) public voting;\n  \n  modifier onlyOwner() {\n      if (msg.sender != owner) {\n        _;\n      }\n  }\n   \n  event AddVoteTopic(\n    address _owner,\n    bytes32 _topic\n  );\n  \n  event AddVoteTopicOption(\n    address _owner,\n    bytes32 _topic,\n    bytes32 _option\n  );\n  \n  event VoteTopic(\n    address _from,\n    bytes32 _topic,\n    bytes32 _option\n  );\n\n  // function voteTopicOption(bytes32 topic, bytes32 option) public {\n  //     if (voting[topic].topic != topic) {\n  //         revert();\n  //     }\n  //     if (voting[topic].existedOptions[option] == false) {\n  //         revert();\n  //     }\n  //     address sender = msg.sender;\n  //   //   if (voting[topic].voted[sender] != 0) {\n  //   //       revert();\n  //   //   }\n  //     voting[topic].voted[sender] = topic;\n  //     voting[topic].votes[option].add(1);\n  //     emit VoteTopic(sender, topic, option);\n  // }\n  // function addTopic(bytes32 topic) public {\n  //     if (voting[topic].topic == topic) {\n  //         revert();\n  //     }\n  //     voting[topic].topic = topic;\n  //     emit AddVoteTopic(msg.sender, topic);\n  // }\n  \n  // function addTopicOption(bytes32 topic, bytes32 option) public {\n  //   //   if (voting[topic].topic != 0) {\n  //   //       revert();\n  //   //   }\n  //     if (voting[topic].existedOptions[option] == true) {\n  //         revert();\n  //     }\n  //     voting[topic].options.push(option);\n  //     voting[topic].existedOptions[option] = true;\n  //     emit AddVoteTopicOption(msg.sender, topic, option);\n  // }\n}\n",
+  "sourcePath": "/Users/peterlai/workshop/contract/contracts/Vote.sol",
+  "ast": {
+    "absolutePath": "/Users/peterlai/workshop/contract/contracts/Vote.sol",
+    "exportedSymbols": {
+      "Vote": [
+        296
+      ]
+    },
+    "id": 297,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 230,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/Users/peterlai/workshop/contract/contracts/SafeMath.sol",
+        "file": "./SafeMath.sol",
+        "id": 231,
+        "nodeType": "ImportDirective",
+        "scope": 297,
+        "sourceUnit": 229,
+        "src": "24:24:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 296,
+        "linearizedBaseContracts": [
+          296
+        ],
+        "name": "Vote",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 234,
+            "libraryName": {
+              "contractScope": null,
+              "id": 232,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 228,
+              "src": "74:8:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$228",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "68:27:2",
+            "typeName": {
+              "id": 233,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "87:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "canonicalName": "Vote.Votes",
+            "id": 252,
+            "members": [
+              {
+                "constant": false,
+                "id": 238,
+                "name": "voted",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "117:33:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
+                  "typeString": "mapping(address => bytes32)"
+                },
+                "typeName": {
+                  "id": 237,
+                  "keyType": {
+                    "id": 235,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "125:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "117:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
+                    "typeString": "mapping(address => bytes32)"
+                  },
+                  "valueType": {
+                    "id": 236,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "136:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 242,
+                "name": "votes",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "156:33:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                  "typeString": "mapping(bytes32 => uint256)"
+                },
+                "typeName": {
+                  "id": 241,
+                  "keyType": {
+                    "id": 239,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "164:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "156:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                    "typeString": "mapping(bytes32 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 240,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "175:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 244,
+                "name": "topic",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "195:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 243,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "195:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 248,
+                "name": "existedOptions",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "214:39:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
+                  "typeString": "mapping(bytes32 => bool)"
+                },
+                "typeName": {
+                  "id": 247,
+                  "keyType": {
+                    "id": 245,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "222:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "214:24:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
+                    "typeString": "mapping(bytes32 => bool)"
+                  },
+                  "valueType": {
+                    "id": 246,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "233:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 251,
+                "name": "options",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "259:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                  "typeString": "bytes32[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 249,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "259:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 250,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "259:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                    "typeString": "bytes32[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Votes",
+            "nodeType": "StructDefinition",
+            "scope": 296,
+            "src": "98:183:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8da5cb5b",
+            "id": 256,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 296,
+            "src": "284:33:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 253,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "284:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "expression": {
+                "argumentTypes": null,
+                "id": 254,
+                "name": "msg",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": -15,
+                "src": "307:3:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_magic_message",
+                  "typeString": "msg"
+                }
+              },
+              "id": 255,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": false,
+              "lValueRequested": false,
+              "memberName": "sender",
+              "nodeType": "MemberAccess",
+              "referencedDeclaration": null,
+              "src": "307:10:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address_payable",
+                "typeString": "address payable"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 259,
+            "name": "topics",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 296,
+            "src": "321:16:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+              "typeString": "bytes32[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 257,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "321:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "id": 258,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "321:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                "typeString": "bytes32[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "functionSelector": "e0e7365c",
+            "id": 263,
+            "name": "voting",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 296,
+            "src": "341:39:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Votes_$252_storage_$",
+              "typeString": "mapping(bytes32 => struct Vote.Votes)"
+            },
+            "typeName": {
+              "id": 262,
+              "keyType": {
+                "id": 260,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "349:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "341:25:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Votes_$252_storage_$",
+                "typeString": "mapping(bytes32 => struct Vote.Votes)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 261,
+                "name": "Votes",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 252,
+                "src": "360:5:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Votes_$252_storage_ptr",
+                  "typeString": "struct Vote.Votes"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 272,
+              "nodeType": "Block",
+              "src": "408:57:2",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 268,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 265,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "420:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 266,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "420:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 267,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 256,
+                      "src": "434:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "420:19:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 271,
+                  "nodeType": "IfStatement",
+                  "src": "416:45:2",
+                  "trueBody": {
+                    "id": 270,
+                    "nodeType": "Block",
+                    "src": "441:20:2",
+                    "statements": [
+                      {
+                        "id": 269,
+                        "nodeType": "PlaceholderStatement",
+                        "src": "451:1:2"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 273,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 264,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "405:2:2"
+            },
+            "src": "387:78:2",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 279,
+            "name": "AddVoteTopic",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 278,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 275,
+                  "indexed": false,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 279,
+                  "src": "496:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 274,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "496:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 277,
+                  "indexed": false,
+                  "name": "_topic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 279,
+                  "src": "516:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 276,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "516:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "490:44:2"
+            },
+            "src": "472:63:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 287,
+            "name": "AddVoteTopicOption",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 286,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 281,
+                  "indexed": false,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 287,
+                  "src": "571:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 280,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "571:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 283,
+                  "indexed": false,
+                  "name": "_topic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 287,
+                  "src": "591:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 282,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "591:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 285,
+                  "indexed": false,
+                  "name": "_option",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 287,
+                  "src": "611:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 284,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "611:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "565:65:2"
+            },
+            "src": "541:90:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 295,
+            "name": "VoteTopic",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 294,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 289,
+                  "indexed": false,
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 295,
+                  "src": "658:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 288,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "658:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 291,
+                  "indexed": false,
+                  "name": "_topic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 295,
+                  "src": "677:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 290,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "677:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 293,
+                  "indexed": false,
+                  "name": "_option",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 295,
+                  "src": "697:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 292,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "697:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "652:64:2"
+            },
+            "src": "637:80:2"
+          }
+        ],
+        "scope": 297,
+        "src": "50:1827:2"
+      }
+    ],
+    "src": "0:1878:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/peterlai/workshop/contract/contracts/Vote.sol",
+    "exportedSymbols": {
+      "Vote": [
+        296
+      ]
+    },
+    "id": 297,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 230,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "absolutePath": "/Users/peterlai/workshop/contract/contracts/SafeMath.sol",
+        "file": "./SafeMath.sol",
+        "id": 231,
+        "nodeType": "ImportDirective",
+        "scope": 297,
+        "sourceUnit": 229,
+        "src": "24:24:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 296,
+        "linearizedBaseContracts": [
+          296
+        ],
+        "name": "Vote",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 234,
+            "libraryName": {
+              "contractScope": null,
+              "id": 232,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 228,
+              "src": "74:8:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$228",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "68:27:2",
+            "typeName": {
+              "id": 233,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "87:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "canonicalName": "Vote.Votes",
+            "id": 252,
+            "members": [
+              {
+                "constant": false,
+                "id": 238,
+                "name": "voted",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "117:33:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
+                  "typeString": "mapping(address => bytes32)"
+                },
+                "typeName": {
+                  "id": 237,
+                  "keyType": {
+                    "id": 235,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "125:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "117:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
+                    "typeString": "mapping(address => bytes32)"
+                  },
+                  "valueType": {
+                    "id": 236,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "136:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 242,
+                "name": "votes",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "156:33:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                  "typeString": "mapping(bytes32 => uint256)"
+                },
+                "typeName": {
+                  "id": 241,
+                  "keyType": {
+                    "id": 239,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "164:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "156:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_uint256_$",
+                    "typeString": "mapping(bytes32 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 240,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "175:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 244,
+                "name": "topic",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "195:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 243,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "195:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 248,
+                "name": "existedOptions",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "214:39:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
+                  "typeString": "mapping(bytes32 => bool)"
+                },
+                "typeName": {
+                  "id": 247,
+                  "keyType": {
+                    "id": 245,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "222:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "214:24:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
+                    "typeString": "mapping(bytes32 => bool)"
+                  },
+                  "valueType": {
+                    "id": 246,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "233:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 251,
+                "name": "options",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 252,
+                "src": "259:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                  "typeString": "bytes32[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 249,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "259:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 250,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "259:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                    "typeString": "bytes32[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Votes",
+            "nodeType": "StructDefinition",
+            "scope": 296,
+            "src": "98:183:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8da5cb5b",
+            "id": 256,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 296,
+            "src": "284:33:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 253,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "284:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "expression": {
+                "argumentTypes": null,
+                "id": 254,
+                "name": "msg",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": -15,
+                "src": "307:3:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_magic_message",
+                  "typeString": "msg"
+                }
+              },
+              "id": 255,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": false,
+              "lValueRequested": false,
+              "memberName": "sender",
+              "nodeType": "MemberAccess",
+              "referencedDeclaration": null,
+              "src": "307:10:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address_payable",
+                "typeString": "address payable"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 259,
+            "name": "topics",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 296,
+            "src": "321:16:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+              "typeString": "bytes32[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 257,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "321:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "id": 258,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "321:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                "typeString": "bytes32[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "functionSelector": "e0e7365c",
+            "id": 263,
+            "name": "voting",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 296,
+            "src": "341:39:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Votes_$252_storage_$",
+              "typeString": "mapping(bytes32 => struct Vote.Votes)"
+            },
+            "typeName": {
+              "id": 262,
+              "keyType": {
+                "id": 260,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "349:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "341:25:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Votes_$252_storage_$",
+                "typeString": "mapping(bytes32 => struct Vote.Votes)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 261,
+                "name": "Votes",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 252,
+                "src": "360:5:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Votes_$252_storage_ptr",
+                  "typeString": "struct Vote.Votes"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 272,
+              "nodeType": "Block",
+              "src": "408:57:2",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 268,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 265,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "420:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 266,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "420:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 267,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 256,
+                      "src": "434:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "420:19:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 271,
+                  "nodeType": "IfStatement",
+                  "src": "416:45:2",
+                  "trueBody": {
+                    "id": 270,
+                    "nodeType": "Block",
+                    "src": "441:20:2",
+                    "statements": [
+                      {
+                        "id": 269,
+                        "nodeType": "PlaceholderStatement",
+                        "src": "451:1:2"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 273,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 264,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "405:2:2"
+            },
+            "src": "387:78:2",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 279,
+            "name": "AddVoteTopic",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 278,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 275,
+                  "indexed": false,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 279,
+                  "src": "496:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 274,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "496:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 277,
+                  "indexed": false,
+                  "name": "_topic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 279,
+                  "src": "516:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 276,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "516:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "490:44:2"
+            },
+            "src": "472:63:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 287,
+            "name": "AddVoteTopicOption",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 286,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 281,
+                  "indexed": false,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 287,
+                  "src": "571:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 280,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "571:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 283,
+                  "indexed": false,
+                  "name": "_topic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 287,
+                  "src": "591:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 282,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "591:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 285,
+                  "indexed": false,
+                  "name": "_option",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 287,
+                  "src": "611:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 284,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "611:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "565:65:2"
+            },
+            "src": "541:90:2"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 295,
+            "name": "VoteTopic",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 294,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 289,
+                  "indexed": false,
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 295,
+                  "src": "658:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 288,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "658:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 291,
+                  "indexed": false,
+                  "name": "_topic",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 295,
+                  "src": "677:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 290,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "677:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 293,
+                  "indexed": false,
+                  "name": "_option",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 295,
+                  "src": "697:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 292,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "697:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "652:64:2"
+            },
+            "src": "637:80:2"
+          }
+        ],
+        "scope": 297,
+        "src": "50:1827:2"
+      }
+    ],
+    "src": "0:1878:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.5+commit.f956cc89.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.1",
+  "updatedAt": "2020-10-19T06:09:34.798Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
