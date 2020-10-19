@@ -39,6 +39,11 @@ contract Vote {
     bytes32 _option
   );
 
+  // return length of topic
+  function getTopicsLength() public view returns (uint256) {
+      return topics.length;
+  }
+
   // return option
   function getOption(bytes32 topic, uint256 i) public view returns (bytes32) {
       return voting[topic].options[i];
