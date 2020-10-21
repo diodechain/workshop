@@ -1,0 +1,48 @@
+/**
+ *
+ *  Color Skin
+ *
+ *  @package gleesik_module
+ *
+  **/
+
+// Theme Colors
+$blue: #F15C2E;
+$green: #2ecc71;
+$light-orange: #f5e2dd;
+
+// Global Pallete
+$white: #fff;
+$black: #000;
+$black-transparent:  rgba($black, 0.9);
+$light-blue: #f4f8f9;
+
+// Primary & Secondary
+$primary: $blue;
+$secondary: #2d3e50;
+
+// Gray Pallete
+$text-gray: #848484;
+$light-gray: #e3e9ed;
+$simple-gray: #bdc3c7;
+$normal-gray: #464646;
+$dark-gray: #202020;
+$background-code: #2e0a23;
+
+// Global Text Color
+$global-text: darken($text-gray, 15%);
+
+// Background Color
+$background-color: $white;
+
+// Sections Colors
+$section-bg: $white;
+$section-focus: $light-blue;
+
+// Footer Colors
+$footer-color: $text-gray;
+$footer-background-color: $dark-gray;
+
+// Sidebar Colors [Widgets]
+$sidebar-header: $light-blue;
+$sidebar-title: $secondary;

@@ -1,0 +1,63 @@
+/*
+Flaticon icon font: Flaticon
+Creation date: 06/02/2020 15:13
+*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon/Flaticon.eot?#v2");
+  src: url("../fonts/Flaticon/Flaticon.eot?#v2_iefix") format("embedded-opentype"),
+        url("../fonts/Flaticon/Flaticon.woff2#v2_") format("woff2"),
+        url("../fonts/Flaticon/Flaticon.woff#v2_") format("woff"),
+        url("../fonts/Flaticon/Flaticon.ttf#v2_") format("truetype"),
+        url("../fonts/Flaticon/Flaticon.svg#v2_Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon/Flaticon.svg#v2_Flaticon") format("svg");
+  }
+}
+
+.fi:before{
+  display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.flaticon-facebook-c:before { content: "\f106"; color: #1877f2}
+.flaticon-linkedin-c:before { content: "\f101"; color: #007bb5}
+.flaticon-telegram-c:before { content: "\f100"; color: #0088cc}
+.flaticon-twitter-c:before { content: "\f103"; color: #1da1f2}
+.flaticon-whatsapp-c:before { content: "\f104"; color: #25d366}
+
+.flaticon-telegram:before { content: "\f100"; }
+.flaticon-linkedin:before { content: "\f101"; }
+.flaticon-github:before { content: "\f102"; }
+.flaticon-twitter:before { content: "\f103"; }
+.flaticon-whatsapp:before { content: "\f104"; }
+.flaticon-youtube:before { content: "\f105"; }
+.flaticon-facebook:before { content: "\f106"; }
+.flaticon-attach:before { content: "\f107"; }
+    
+$font-Flaticon-telegram: "\f100";
+$font-Flaticon-linkedin: "\f101";
+$font-Flaticon-github: "\f102";
+$font-Flaticon-twitter: "\f103";
+$font-Flaticon-whatsapp: "\f104";
+$font-Flaticon-youtube: "\f105";
+$font-Flaticon-facebook: "\f106";
+$font-Flaticon-attach: "\f107";
+
