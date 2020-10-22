@@ -13,7 +13,7 @@ contract Vote {
     mapping(bytes32 => uint256) votes;
     mapping(bytes32 => bool) existedOptions;
   }
-  bytes32[] topics;
+  bytes32[] public topics;
   mapping(bytes32 => Votes) public voting;
 
   event LockVoteTopic(
@@ -109,6 +109,7 @@ contract Vote {
       }
       voting[topic].topic = topic;
       voting[topic].owner = msg.sender;
+      topics.push(topic);
       emit AddVoteTopic(msg.sender, topic);
   }
 
