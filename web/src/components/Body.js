@@ -168,6 +168,7 @@ function Body() {
   }
   const TopicsTable = ({ vote }) => {
     let checked = '';
+    let newOption = '';
     const optionChange = (e) => {
       const t = e.target;
       // allow one option
@@ -202,6 +203,46 @@ function Body() {
         console.log('[vote]: ', err)
       }
     }
+    const newOptionChange = (e, topic) => {
+      const value = e.target.value;
+      // do some validation
+      if (value.length > 0) {
+        // filter new option
+        if (topicOptions[topic]) {
+          let option = topicOptions[topic].filter((o) => {
+            return o.name == newOption;
+          });
+          if (option.length > 0) {
+            return;
+          }
+        }
+        newOption = value;
+      }
+    }
+    const addOption = async (e) => {
+      if (newOption == '') {
+        return;
+      }
+      const topic = Buffer.from(e).toString('hex').padEnd(64, 0);
+      const option = Buffer.from(newOption).toString('hex').padEnd(64, 0);
+      try {
+        await vote.addTopicOption('0x' + topic, '0x' + option);
+        let ops = Object.assign({}, topicOptions);
+        
+        if (ops[e]) {
+          ops[e].push({
+            name: newOption,
+            votes: 0,
+            topic: topic,
+            option: option,
+            voted: false
+          });
+          setTopicOptions(ops);
+        }
+      } catch (err) {
+        console.log('[addOption]: ', err)
+      }
+    }
     return (
       <table className="data">
         <caption><h1>Vote</h1></caption>
@@ -215,7 +256,13 @@ function Body() {
               <tr key={t.name}>
                 <td>{ t.name } {t.locked}</td>
                 <td>
-                  { topicOptions[t.name] && topicOptions[t.name].length > 0 && <div>{topicOptions[t.name].map((o) => {
+                  { topicOptions[t.name] && <div className="input-button white marginized-top">
+                    <input className="no-icon" id={`text-${t.name}`}  placeholder="option" type="text" onChange={(e) => newOptionChange(e, t.name)} />
+                    <button id={`button-${t.name}`} className="button" onClick={() => addOption(t.name)}>
+                      <span>Add</span>
+                    </button>
+                  </div>}
+                  { topicOptions[t.name] && topicOptions[t.name].length > 0 && <div className="marginized-top">{topicOptions[t.name].map((o) => {
                     return (
                       <label htmlFor={`checkbox-${o.name}`} key={o.name}>
                         <input type="checkbox" id={`checkbox-${o.name}`} 
@@ -236,7 +283,7 @@ function Body() {
                       <span>Vote</span>
                     </button>}
                   </div> }
-                  { !topicOptions[t.name] && <p>...</p> }
+                  { !topicOptions[t.name] && <p></p> }
                 </td>
               </tr>
             )
