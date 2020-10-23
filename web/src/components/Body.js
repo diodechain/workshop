@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Bridge from './Bridge';
 import Vote from './Vote';
+import QRCode from 'qrcode.react';
 
 function Body() {
   // deployed tx: 0xf71b1b70696d4d7032e6f6c9de7b45380179a6deb0ed590a88841bafdba66a3d
@@ -144,15 +145,17 @@ function Body() {
       <div className="data">
         <div className="content">
           <div className="marginized-bottom">Your Account</div>
-          <div><div className="marginized">
-            Name:<br />
-            <a href={"https://diode.io/prenet/#/address/"+selectedAddress} className="">{selectedAddress.substr(0, 17)}...</a></div>
+          <div>
             <div className="marginized">
-              Balance:<br />
-              {balance} DIO<br />
-              Note:<br />
-              The vote was deployed first on Diode Network, you can deploy your own vote smart contract with <a href="">source code</a>.
-            </div>
+              <QRCode value={selectedAddress} />
+              Name:<br />
+              <a href={"https://diode.io/prenet/#/address/"+selectedAddress} className="">{selectedAddress.substr(0, 17)}...</a></div>
+              <div className="marginized">
+                Balance:<br />
+                {balance} DIO<br />
+                Note:<br />
+                The vote was deployed first on Diode Network, you can deploy your own vote smart contract with <a href="">source code</a>.
+              </div>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@
     "ethereumjs-abi": "^0.6.8",
     "js-keccak-tiny": "^0.4.1",
     "node-sass": "^4.14.1",
+    "qrcode.react": "^1.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3"
