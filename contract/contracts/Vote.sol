@@ -49,6 +49,11 @@ contract Vote {
       return voting[topic].options[i];
   }
 
+  // return voted option
+  function getVotedOption(bytes32 topic, address sender) public view returns (bytes32) {
+      return voting[topic].voted[sender];
+  }
+
   // return length of option
   function getOptionsLength(bytes32 topic) public view returns (uint256) {
       return voting[topic].options.length;
@@ -97,7 +102,7 @@ contract Vote {
       if (voting[topic].voted[sender] != 0) {
           revert("voted");
       }
-      voting[topic].voted[sender] = topic;
+      voting[topic].voted[sender] = option;
       voting[topic].votes[option] = voting[topic].votes[option].add(1);
       emit VoteTopicOption(sender, topic, option);
   }
