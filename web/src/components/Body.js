@@ -64,7 +64,7 @@ function Body() {
           }
           const topic = {
             name: Buffer.from(nonZero).toString('utf8'),
-            locked: locked[0] || voted[0][0] != 0
+            locked: locked[0] || voted[0] != 0
           };
           setTopics(topics.concat(topic));
           let ops = Object.assign({}, topicOptions);
@@ -148,6 +148,7 @@ function Body() {
           <div>
             <div className="marginized">
               <QRCode value={selectedAddress} />
+              <br />
               Name:<br />
               <a href={"https://diode.io/prenet/#/address/"+selectedAddress} className="">{selectedAddress.substr(0, 17)}...</a></div>
               <div className="marginized">
