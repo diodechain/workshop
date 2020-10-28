@@ -196,7 +196,7 @@ function Body() {
         if (vs) {
           vs.textContent = parseInt(vs.textContent) + 1;
         }
-        const b = document.getElementById(`button-${topicName}`);
+        const b = document.getElementById(`button-vote-${topicName}`);
         if (b) {
           b.remove();
         }
@@ -219,6 +219,22 @@ function Body() {
         }
         newOption = value;
       }
+    }
+    const LoadingButton = (props) => {
+      let [isLoading, setIsLoading] = useState(false);
+      const onClick = async () => {
+        setIsLoading(true);
+        try {
+          await props.onClick(arguments);
+        } catch (err) {
+        } finally {
+          setIsLoading(false);
+        }
+      }
+      return(<button id={props.id} className="button" onClick={onClick}>
+        <img src="https://diode.io/images/spinning.gif" className={ isLoading ? "btn-loading" : "hide" } />
+        <span>{props.btnText ? props.btnText : "click"}</span>
+      </button>);
     }
     const addOption = async (e) => {
       if (newOption == '') {
@@ -243,6 +259,7 @@ function Body() {
       } catch (err) {
         console.log('[addOption]: ', err)
       }
+      return
     }
     return (
       <table className="data">
@@ -259,9 +276,7 @@ function Body() {
                 <td>
                   { topicOptions[t.name] && <div className="input-button white marginized-top">
                     <input className="no-icon" id={`text-${t.name}`}  placeholder="option" type="text" onChange={(e) => newOptionChange(e, t.name)} />
-                    <button id={`button-${t.name}`} className="button" onClick={() => addOption(t.name)}>
-                      <span>Add</span>
-                    </button>
+                    <LoadingButton id={`button-${t.name}`} onClick={addOption.bind(this,t.name)} btnText={"Add"}></LoadingButton>
                   </div>}
                   { topicOptions[t.name] && topicOptions[t.name].length > 0 && <div className="marginized-top">{topicOptions[t.name].map((o) => {
                     return (
@@ -273,16 +288,13 @@ function Body() {
                           data-topic={o.topic}
                           data-option={o.option}
                           data-optionname={o.name}
-                          data-topicname={o.name}
+                          data-topicname={t.name}
                         />
                         {o.name} <span id={`votes-${o.name}`}>{o.votes}</span>
                       </label>
                     )
                   })}
-                    {!t.locked && <button id={`button-${t.name}`} className="button" onClick={voteOption}>
-                      <img src="https://diode.io/images/spinning.gif" className="btn-loading" />
-                      <span>Vote</span>
-                    </button>}
+                    {!t.locked && <LoadingButton id={`button-vote-${t.name}`} onClick={voteOption} btnText={"Vote"}></LoadingButton>}
                   </div> }
                   { !topicOptions[t.name] && <p></p> }
                 </td>
