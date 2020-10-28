@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Bridge from './Bridge';
 import Vote from './Vote';
+import BNS from './BNS';
 import QRCode from 'qrcode.react';
 
 function Body() {
   // deployed tx: 0xf71b1b70696d4d7032e6f6c9de7b45380179a6deb0ed590a88841bafdba66a3d
   const voteAddress = '0x520bB1F53a7A6BCfc4C70E024c4e8e4Cc7499B9a';
+  const DNSAddr = "0xaf60faa5cd840b724742f1af116168276112d6a6";
   let [vote, setVote] = useState(new Vote(voteAddress));
+  let [bns, setBNS] = useState(new BNS(DNSAddr));
   let ethereum = {
     isMetaMask: false
   };
@@ -46,6 +49,7 @@ function Body() {
       // vote = new Vote(voteAddress);
       Bridge.getBalance(selectedAddress)
         .then((b) => setBalance(b));
+      bns.initialize().catch((err) => {});
       const fetchVote = async () => {
         await vote.initialize();
         let v = await vote.getTopicsLength();
@@ -115,6 +119,22 @@ function Body() {
       alert(err.message);
     }
   }
+  const LoadingButton = (props) => {
+    let [isLoading, setIsLoading] = useState(false);
+    const onClick = async () => {
+      setIsLoading(true);
+      try {
+        await props.onClick(arguments);
+      } catch (err) {
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    return(<button id={props.id} className="button" onClick={onClick}>
+      <img src="https://diode.io/images/spinning.gif" className={ isLoading ? "btn-loading" : "hide" } />
+      <span>{props.btnText ? props.btnText : "click"}</span>
+    </button>);
+  }
   const RequestMetamask = () => {
     return (
       <div className="data" >
@@ -141,6 +161,29 @@ function Body() {
     if (!selectedAddress) {
       return (<RequestMetamask />)
     }
+    let name = "";
+    const isValidBNS = (n) => {
+      return n.length > 7 || /^(0x)?[a-f0-9]{40}$/i.test(n);
+    }
+    const setLookupBNS = async (e) => {
+      name = e.target.value;
+      // if (!isValidBNS(name)) {
+      //   name = "";
+      // }
+    }
+    const lookupBNS = async (e) => {
+      if (isValidBNS(name)) {
+        if (/^(0x)?[a-f0-9]{40}$/i.test(name)) {
+          await bns.sendTransaction(name, 0, 0, "");
+          return
+        }
+        let res = await bns.Resolve(name);
+        let addr = res[0];
+        if (addr != '0x0000000000000000000000000000000000000000') {
+          await bns.sendTransaction(addr, 0, 0, "");
+        }
+      }
+    }
     return (
       <div className="data">
         <div className="content">
@@ -155,7 +198,11 @@ function Body() {
                 Balance:<br />
                 {balance} DIO<br />
                 Note:<br />
-                The vote was deployed first on Diode Network, you can deploy your own vote smart contract with <a href="">source code</a>.
+                The vote was deployed first on Diode Network, you can deploy your own vote smart contract with <a href="">source code</a>.<br />
+                <div className="input-button white marginized-top" style={{minWidth: '250px'}}>
+                  <input className="no-icon" placeholder="send to bns" type="text" onChange={setLookupBNS} />
+                  <LoadingButton onClick={lookupBNS} btnText={"Send"}></LoadingButton>
+                </div>
               </div>
           </div>
         </div>
@@ -219,22 +266,6 @@ function Body() {
         }
         newOption = value;
       }
-    }
-    const LoadingButton = (props) => {
-      let [isLoading, setIsLoading] = useState(false);
-      const onClick = async () => {
-        setIsLoading(true);
-        try {
-          await props.onClick(arguments);
-        } catch (err) {
-        } finally {
-          setIsLoading(false);
-        }
-      }
-      return(<button id={props.id} className="button" onClick={onClick}>
-        <img src="https://diode.io/images/spinning.gif" className={ isLoading ? "btn-loading" : "hide" } />
-        <span>{props.btnText ? props.btnText : "click"}</span>
-      </button>);
     }
     const addOption = async (e) => {
       if (newOption == '') {
